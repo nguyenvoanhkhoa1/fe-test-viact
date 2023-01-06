@@ -8,6 +8,7 @@ import {
   AppBar,
   Avatar,
   Box,
+  CssBaseline,
   Divider,
   Drawer,
   IconButton,
@@ -30,7 +31,7 @@ import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined
 import DvrOutlinedIcon from "@mui/icons-material/DvrOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
 
-const drawerWidth = 300;
+const drawerWidth = 240;
 const buttonList = [
   { icon: DashboardIcon, name: "Dashboard", path: "" },
   { icon: AvTimerIcon, name: "Real-time Tracking", path: "" },
@@ -80,12 +81,13 @@ const Main = (props) => {
             selected={selectedIndex === index}
             onClick={(event) => handleListItemClick(event, index)}
             style={
-              selectedIndex === index
+              (selectedIndex === index
                 ? { borderLeft: "5px solid #6573c3", background: "unset" }
-                : {}
+                : {},
+              { padding: 4 })
             }
           >
-            <ListItemIcon>
+            <ListItemIcon sx={{ minWidth: 32 }}>
               <item.icon />
             </ListItemIcon>
             <ListItemText primary={item.name} />
@@ -175,15 +177,13 @@ const Main = (props) => {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          p: 2,
           width: { md: `calc(100% - ${drawerWidth}px)` },
+          minHeight: "100vh",
+          paddingTop: { xs: 9, md: 2 },
         }}
       >
-        <Toolbar
-          sx={{
-            display: { xs: "block", md: "none" },
-          }}
-        />
+        <CssBaseline></CssBaseline>
         {children}
       </Box>
     </Box>

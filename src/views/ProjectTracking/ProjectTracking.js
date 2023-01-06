@@ -1,7 +1,13 @@
+import { Box } from "@mui/material";
+import { TaskKanbanBoard } from "components";
 import React from "react";
 
 const ProjectTracking = () => {
-  return <div>ProjectTracking</div>;
+  return (
+    <Box sx={{ height: "100%" }}>
+      <TaskKanbanBoard></TaskKanbanBoard>
+    </Box>
+  );
 };
 
 export default ProjectTracking;

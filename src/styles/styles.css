@@ -4,3 +4,9 @@
 
 body {
 }
+* {
+  /* -ms-overflow-style: none; */
+}
+::-webkit-scrollbar {
+  display: block;
+}
