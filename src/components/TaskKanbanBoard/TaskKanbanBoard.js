@@ -90,102 +90,91 @@ const TaskKanbanBoard = () => {
           </Button>
         </Box>
         <Divider />
-        <div
-          style={{
-            height: "100%",
-            overflow: "auto",
-          }}
-        >
-          <Box sx={{ padding: 1, height: "100%", minWidth: "1064px" }}>
-            <Grid
-              sx={{ height: "100%" }}
-              container
-              spacing={{ xs: 1 }}
-              columns={{ xs: 4 }}
+        <Box sx={{ padding: 1, height: "100%", minWidth: "1064px" }}>
+          <Grid
+            sx={{ height: "100%" }}
+            container
+            spacing={{ xs: 1 }}
+            columns={{ xs: 4 }}
+          >
+            <DragDropContext
+              onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
             >
-              <DragDropContext
-                onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
-              >
-                {Object.entries(columns).map(([columnId, column], index) => {
-                  return (
-                    <Grid item xs={1} key={columnId}>
-                      <Box
-                        sx={{
-                          height: "calc(100% - 60px)",
-                          background: "#dcdcdc",
-                          padding: 1,
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          borderRadius: 1,
-                        }}
-                      >
-                        <Typography sx={{ width: "100%" }} textAlign="start">
-                          {column.name}
-                        </Typography>
-                        <div style={{ width: "100%", height: "100%" }}>
-                          <div style={{ height: "100%" }}>
-                            <Droppable
-                              style={{ height: "100%" }}
-                              droppableId={columnId}
-                              key={columnId}
-                            >
-                              {(provided, snapshot) => {
-                                return (
-                                  <div
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
-                                    style={{
-                                      borderRadius: 4,
-                                      height: "100%",
-                                      background: snapshot.isDraggingOver
-                                        ? "lightblue"
-                                        : "unset",
-                                    }}
-                                  >
-                                    {column.items.map((item, index) => {
-                                      return (
-                                        <Draggable
-                                          key={item.id}
-                                          draggableId={item.id}
-                                          index={index}
-                                        >
-                                          {(provided, snapshot) => {
-                                            return (
-                                              <div
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                              >
-                                                <TaskCard data={item} />
-                                              </div>
-                                            );
-                                          }}
-                                        </Draggable>
-                                      );
-                                    })}
-                                    {provided.placeholder}
-                                  </div>
-                                );
-                              }}
-                            </Droppable>
-                          </div>
-                        </div>
-                        <Button
-                          onClick={() => handleOpenAddTaskDialog(columnId)}
+              {Object.entries(columns).map(([columnId, column], index) => {
+                return (
+                  <Grid item xs={1} key={columnId}>
+                    <Box
+                      sx={{
+                        height: "calc(100% - 60px)",
+                        background: "#dcdcdc",
+                        padding: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        borderRadius: 1,
+                      }}
+                    >
+                      <Typography sx={{ width: "100%" }} textAlign="start">
+                        {column.name}
+                      </Typography>
+                      <div style={{ width: "100%", height: "100%" }}>
+                        <Droppable
+                          style={{ height: "100%" }}
+                          droppableId={columnId}
+                          key={columnId}
                         >
-                          <AddIcon sx={{ marginInline: "auto" }} />
-                          Add new task
-                        </Button>
-                      </Box>
-                    </Grid>
-                  );
-                })}
-              </DragDropContext>
-            </Grid>
-          </Box>
-        </div>
+                          {(provided, snapshot) => {
+                            return (
+                              <div
+                                {...provided.droppableProps}
+                                ref={provided.innerRef}
+                                style={{
+                                  borderRadius: 4,
+                                  height: "100%",
+                                  background: snapshot.isDraggingOver
+                                    ? "lightblue"
+                                    : "unset",
+                                }}
+                              >
+                                {column.items.map((item, index) => {
+                                  return (
+                                    <Draggable
+                                      key={item.id}
+                                      draggableId={item.id}
+                                      index={index}
+                                    >
+                                      {(provided, snapshot) => {
+                                        return (
+                                          <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                          >
+                                            <TaskCard data={item} />
+                                          </div>
+                                        );
+                                      }}
+                                    </Draggable>
+                                  );
+                                })}
+                                {provided.placeholder}
+                              </div>
+                            );
+                          }}
+                        </Droppable>
+                      </div>
+                      <Button onClick={() => handleOpenAddTaskDialog(columnId)}>
+                        <AddIcon sx={{ marginInline: "auto" }} />
+                        Add new task
+                      </Button>
+                    </Box>
+                  </Grid>
+                );
+              })}
+            </DragDropContext>
+          </Grid>
+        </Box>
       </Card>
       <AddTaskDialog
         open={openAddTaskDialog}

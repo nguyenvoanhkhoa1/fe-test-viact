@@ -132,7 +132,7 @@ const Main = (props) => {
           width: { md: `calc(100% - ${drawerWidth}px)` },
           ml: { md: `${drawerWidth}px` },
           display: { md: "" },
-          background: { sx: "unset", md: "none" },
+          background: { sx: "unset", md: "white" },
           boxShadow: { sx: "unset", md: "none" },
         }}
       >
@@ -206,6 +206,7 @@ const Main = (props) => {
             />
           </Box>
         </Toolbar>
+        <Divider />
       </AppBar>
       <Box
         component="nav"
