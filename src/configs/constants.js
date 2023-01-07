@@ -1,23 +1,5 @@
-export const TABLE = {
-  defaultLimit:
-    window.innerWidth > 1536
-      ? 30
-      : window.innerWidth > 1280
-      ? 24
-      : window.innerWidth > 1024
-      ? 18
-      : 12,
-};
-
-export const SEARCH = {
-  autocomplete: {
-    defaultLimit: 4,
-    defaultTimeout: 1000,
-  },
-};
-
-export const ACTION = {
-  favorite: 1,
-  share: 2,
-  embed: 3,
+export const TASK_PRIORITY = {
+  high: { value: 1, label: "High" },
+  medium: { value: 2, label: "Medium" },
+  low: { value: 3, label: "Low" },
 };

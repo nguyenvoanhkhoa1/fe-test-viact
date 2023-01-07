@@ -8,10 +8,13 @@ import {
   AppBar,
   Avatar,
   Box,
+  Breadcrumbs,
+  Button,
   CssBaseline,
   Divider,
   Drawer,
   IconButton,
+  Link,
   List,
   ListItem,
   ListItemButton,
@@ -21,6 +24,8 @@ import {
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import AvTimerIcon from "@mui/icons-material/AvTimer";
 import CollectionsIcon from "@mui/icons-material/Collections";
@@ -61,21 +66,27 @@ const Main = (props) => {
   };
 
   const drawer = (
-    <div>
-      <Toolbar
-        sx={{
-          display: { xs: "block", md: "none" },
-        }}
-      />
-      <Box sx={{ width: "100%", padding: "20px" }}>
+    <Box
+      sx={{
+        display: "flex",
+        height: "100%",
+        flexDirection: "column",
+        paddingTop: { xs: "64px", md: 0 },
+        paddingBottom: "20px",
+      }}
+    >
+      <Box sx={{ width: "100%", padding: "4px 20px" }}>
         <img
-          className="w-full h-auto"
+          className="w-auto h-20"
           src="/images/workpuls-logo.png"
           alt="Logo"
         />
       </Box>
       <Divider />
-      <List component="nav" style={{ padding: "20px" }}>
+      <List
+        component="nav"
+        style={{ padding: "20px", height: "100%", overflowY: "auto" }}
+      >
         {buttonList.map((item, index) => (
           <ListItemButton
             selected={selectedIndex === index}
@@ -97,8 +108,8 @@ const Main = (props) => {
       <Box
         sx={{
           display: { xs: "none", md: "block" },
-          position: "absolute",
-          bottom: 10,
+          // position: "absolute",
+          // bottom: 10,
           width: "100%",
         }}
       >
@@ -109,7 +120,7 @@ const Main = (props) => {
         />
         <Typography textAlign={"center"}>Joe Geller</Typography>
       </Box>
-    </div>
+    </Box>
   );
 
   return (
@@ -117,22 +128,83 @@ const Main = (props) => {
       <AppBar
         position="fixed"
         sx={{
+          height: { sx: "64px", md: "88px" },
           width: { md: `calc(100% - ${drawerWidth}px)` },
           ml: { md: `${drawerWidth}px` },
-          display: { md: "none" },
+          display: { md: "" },
+          background: { sx: "unset", md: "none" },
+          boxShadow: { sx: "unset", md: "none" },
         }}
       >
-        <Toolbar>
+        <Toolbar
+          sx={{
+            height: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2 }}
+            sx={{ display: { sx: "block", md: "none" }, mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div"></Typography>
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
+            <Breadcrumbs
+              separator={<NavigateNextIcon fontSize="small" />}
+              aria-label="breadcrumb"
+            >
+              <Link fontSize={16} fontWeight={600} underline="hover" key="1">
+                Projects
+              </Link>
+              <Typography
+                fontSize={20}
+                fontWeight={800}
+                color="text.primary"
+                key="2"
+              >
+                Design System
+              </Typography>
+            </Breadcrumbs>
+            <Box display={"flex"} alignItems={"end"} gap={2}>
+              <Typography fontSize={28} fontWeight={900} color="text.primary">
+                Design System
+              </Typography>
+              <Button sx={{ fontSize: "16px", fontWeight: 600, padding: 0 }}>
+                Edit
+              </Button>
+            </Box>
+          </Box>
+          <IconButton
+            sx={{
+              display: { xs: "none", md: "block" },
+            }}
+            variant="outlined"
+          >
+            <NotificationsNoneOutlinedIcon
+              sx={{
+                color: "blue",
+                width: 40,
+                height: 40,
+              }}
+            />
+          </IconButton>
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              alignItems: "center",
+            }}
+          >
+            <Typography textAlign={"center"}>Joe Geller</Typography>
+            <Avatar
+              alt="Remy Sharp"
+              src="https://i.pravatar.cc/300"
+              sx={{ marginLeft: 2 }}
+            />
+          </Box>
         </Toolbar>
       </AppBar>
       <Box
@@ -178,9 +250,9 @@ const Main = (props) => {
         sx={{
           flexGrow: 1,
           p: 2,
-          width: { md: `calc(100% - ${drawerWidth}px)` },
+          width: { xs: "100%", md: `calc(100% - ${drawerWidth}px)` },
           minHeight: "100vh",
-          paddingTop: { xs: 9, md: 2 },
+          paddingTop: { xs: 10, md: 13 },
         }}
       >
         <CssBaseline></CssBaseline>
