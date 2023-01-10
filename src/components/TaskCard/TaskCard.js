@@ -2,8 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Avatar from "@mui/material/Avatar";
 import clsx from "clsx";
-import { Box, IconButton, Paper, Tooltip, Typography } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  Paper,
+  Popover,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ScheduleIcon from "@mui/icons-material/Schedule";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import KeyboardControlKeyIcon from "@mui/icons-material/KeyboardControlKey";
@@ -15,11 +23,23 @@ import { TASK_PRIORITY } from "configs";
 // import DocumentIcon from "assets/icons/procedure/document-icon.svg";
 
 const TaskCard = (props) => {
-  const { data, ...rest } = props;
+  const { data, columnId, index, onDelete, ...rest } = props;
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");
   const [timerMinutes, setTimerMinutes] = useState("00");
   const [timerSeconds, setTimerSeconds] = useState("00");
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleOpenPopOver = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClosePopOver = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   let interval = useRef();
   const startTimer = () => {
@@ -45,6 +65,11 @@ const TaskCard = (props) => {
         setTimerSeconds(seconds < 10 ? `0${seconds}` : `${seconds}`);
       }
     }, 1000);
+  };
+
+  const handleDelete = () => {
+    handleClosePopOver();
+    onDelete(columnId, index);
   };
 
   useEffect(() => {
@@ -78,11 +103,31 @@ const TaskCard = (props) => {
           {data?.title}
         </Typography>
         <IconButton
+          aria-describedby={id}
           sx={{ width: "20px", height: "20px" }}
           aria-label="settings"
+          onClick={handleOpenPopOver}
         >
           <MoreHorizIcon sx={{ width: "16px", height: "16px" }} />
         </IconButton>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClosePopOver}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+        >
+          <IconButton
+            aria-label="settings"
+            sx={{ color: "red" }}
+            onClick={handleDelete}
+          >
+            <DeleteOutlineOutlinedIcon sx={{ width: "16px", height: "16px" }} />
+          </IconButton>
+        </Popover>
       </Box>
       <Box
         sx={{

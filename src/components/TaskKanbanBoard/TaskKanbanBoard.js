@@ -39,6 +39,17 @@ const TaskKanbanBoard = () => {
     });
     setOpenAddTaskDialog(false);
   };
+  const handleDeleteTask = (columnId, index) => {
+    const desColItems = columns[columnId].items;
+    desColItems.splice(index, 1);
+    setColumns({
+      ...columns,
+      [columnId]: {
+        ...columns[columnId],
+        items: desColItems,
+      },
+    });
+  };
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
     const { source, destination } = result;
@@ -151,7 +162,12 @@ const TaskKanbanBoard = () => {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                           >
-                                            <TaskCard data={item} />
+                                            <TaskCard
+                                              data={item}
+                                              columnId={columnId}
+                                              index={index}
+                                              onDelete={handleDeleteTask}
+                                            />
                                           </div>
                                         );
                                       }}
