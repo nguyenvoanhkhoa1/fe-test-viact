@@ -16,11 +16,14 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 import TaskData from "../../data/task-data.json";
 import AddTaskDialog from "components/AddTaskDialog";
+import EditTaskDialog from "components/EditTaskDialog";
 
 const TaskKanbanBoard = () => {
   const [columns, setColumns] = useState(TaskData);
   const [openAddTaskDialog, setOpenAddTaskDialog] = useState(false);
+  const [openEditTaskDialog, setOpenEditTaskDialog] = useState(false);
   const [selectedCol, setSelectedCol] = useState(null);
+  const [selectedTask, setSelectedTask] = useState(null);
 
   const handleOpenAddTaskDialog = (columnId) => {
     setSelectedCol(columnId ? columnId : Object.keys(columns)[0]);
@@ -39,6 +42,28 @@ const TaskKanbanBoard = () => {
     });
     setOpenAddTaskDialog(false);
   };
+
+  const handleOpenEditTaskDialog = (columnId, index) => {
+    setSelectedTask({ columnId: columnId, index: index });
+    setOpenEditTaskDialog(true);
+  };
+  const handleCloseEditTaskDialog = () => {
+    setOpenEditTaskDialog(false);
+  };
+  const handleSubmitEditTaskDialog = (body) => {
+    const desColItems = columns[selectedTask.columnId].items;
+    desColItems.splice(selectedTask.index, 1);
+    desColItems.splice(selectedTask.index, 0, body);
+    setColumns({
+      ...columns,
+      [selectedTask.columnId]: {
+        ...columns[selectedTask.columnId],
+        items: desColItems,
+      },
+    });
+    setOpenEditTaskDialog(false);
+  };
+
   const handleDeleteTask = (columnId, index) => {
     const desColItems = columns[columnId].items;
     desColItems.splice(index, 1);
@@ -166,6 +191,7 @@ const TaskKanbanBoard = () => {
                                               data={item}
                                               columnId={columnId}
                                               index={index}
+                                              onEdit={handleOpenEditTaskDialog}
                                               onDelete={handleDeleteTask}
                                             />
                                           </div>
@@ -196,6 +222,12 @@ const TaskKanbanBoard = () => {
         open={openAddTaskDialog}
         onClose={handleCloseAddTaskDialog}
         onSubmit={handleSubmitAddTaskDialog}
+      />
+      <EditTaskDialog
+        data={columns[selectedTask?.columnId]?.items[selectedTask?.index]}
+        open={openEditTaskDialog}
+        onClose={handleCloseEditTaskDialog}
+        onSubmit={handleSubmitEditTaskDialog}
       />
     </>
   );

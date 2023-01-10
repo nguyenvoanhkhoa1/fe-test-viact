@@ -5,3 +5,4 @@ export { default as TaskKanbanBoard } from "./TaskKanbanBoard";
 export { default as ProjectFeature } from "./ProjectFeature";
 export { default as TaskCard } from "./TaskCard";
 export { default as AddTaskDialog } from "./AddTaskDialog";
+export { default as EditTaskDialog } from "./EditTaskDialog";

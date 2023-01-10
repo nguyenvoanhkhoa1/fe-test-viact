@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ScheduleIcon from "@mui/icons-material/Schedule";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
@@ -23,7 +24,7 @@ import { TASK_PRIORITY } from "configs";
 // import DocumentIcon from "assets/icons/procedure/document-icon.svg";
 
 const TaskCard = (props) => {
-  const { data, columnId, index, onDelete, ...rest } = props;
+  const { data, columnId, index, onEdit, onDelete, ...rest } = props;
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");
   const [timerMinutes, setTimerMinutes] = useState("00");
@@ -67,6 +68,10 @@ const TaskCard = (props) => {
     }, 1000);
   };
 
+  const handleEdit = () => {
+    handleClosePopOver();
+    onEdit(columnId, index);
+  };
   const handleDelete = () => {
     handleClosePopOver();
     onDelete(columnId, index);
@@ -120,11 +125,10 @@ const TaskCard = (props) => {
             horizontal: "left",
           }}
         >
-          <IconButton
-            aria-label="settings"
-            sx={{ color: "red" }}
-            onClick={handleDelete}
-          >
+          <IconButton sx={{ color: "green" }} onClick={handleEdit}>
+            <EditOutlinedIcon sx={{ width: "16px", height: "16px" }} />
+          </IconButton>
+          <IconButton sx={{ ml: 1, color: "red" }} onClick={handleDelete}>
             <DeleteOutlineOutlinedIcon sx={{ width: "16px", height: "16px" }} />
           </IconButton>
         </Popover>

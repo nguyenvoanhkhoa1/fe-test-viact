@@ -29,8 +29,8 @@ import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import EMPLOYEES from "../../data/employee.json";
 
-const AddTaskDialog = (props) => {
-  const { open, onClose, onSubmit } = props;
+const EditTaskDialog = (props) => {
+  const { data, open, onClose, onSubmit } = props;
   const [title, setTitle] = useState("");
   const [assignee, setAssignee] = useState([]);
   const [time, setTime] = useState(null);
@@ -73,6 +73,11 @@ const AddTaskDialog = (props) => {
       setAssignee([]);
       setTime(null);
       setPriority("");
+    } else {
+      setTitle(data?.title);
+      setAssignee(data?.assignee);
+      setTime(data?.time);
+      setPriority(data?.priority);
     }
   }, [open]);
 
@@ -84,7 +89,7 @@ const AddTaskDialog = (props) => {
       fullWidth={true}
       maxWidth={"md"}
     >
-      <DialogTitle>Add New Task</DialogTitle>
+      <DialogTitle>Edit Task</DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
@@ -180,4 +185,4 @@ const AddTaskDialog = (props) => {
   );
 };
 
-export default AddTaskDialog;
+export default EditTaskDialog;
