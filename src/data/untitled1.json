@@ -1,0 +1,241 @@
+{
+  "restoreOptions": [
+    {
+      "reason": "",
+      "restorePointId": "2b6ae8cd-b50c-4ad3-aec7-8e35eafd1899",
+      "startVmAfterRestore": false,
+      "serviceAccountId": "8ad5c169-c2fc-4a0a-a1ae-5a5aaf2985bf",
+      "toAlternative": {
+        "vmId": "efr96w6e5rzxq8jf5xbirxncytx9c1wirzar8gjjizoas8gxi6zo",
+        "vmAzureResourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst/providers/microsoft.compute/virtualmachines/vdc-azure-logix-bao-test-18032025",
+        "serviceAccountId": "8ad5c169-c2fc-4a0a-a1ae-5a5aaf2985bf",
+        "name": "vdc-azure-logix-bao-test-18032025",
+        "subscription": {
+          "id": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+          "environment": 0,
+          "tenantId": "48bf783f-81f9-41a8-917e-045fbca6b055",
+          "tenantName": "VDC Support1",
+          "name": "Veeam - VDC - Support 1",
+          "status": 0
+        },
+        "resourceGroup": {
+          "id": "7j3o99aiqkdqg3kkcz7kig5qafr7pue9pjq8gdgrskub3kks5jdy",
+          "resourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst",
+          "name": "vdc-azure-test-tst",
+          "azureEnvironment": 0,
+          "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+          "regionId": "australiaeast"
+        },
+        "region": {
+          "id": "australiaeast",
+          "name": "Australia East"
+        },
+        "size": "Standard_B1ls",
+        "hasEphemeralOsDisk": false,
+        "osDisk": {
+          "name": "vdc-azure-logix-bao-test-18032025_OsDisk_1_76b014e0f782453f9105359f5efd8c68",
+          "diskType": 0,
+          "sku": "PremiumSsd",
+          "availabilityZone": null,
+          "sizeInGB": 30,
+          "osType": 1,
+          "diskId": "y5xrr1mgtid64a158fhis489gp9e89ieownrkxgdcypiadr36x9y",
+          "subscription": {
+            "id": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+            "environment": 0,
+            "tenantId": "48bf783f-81f9-41a8-917e-045fbca6b055",
+            "tenantName": null,
+            "name": "Veeam - VDC - Support 1",
+            "status": 0
+          },
+          "region": {
+            "id": "australiaeast",
+            "name": "Australia East"
+          },
+          "resourceGroup": {
+            "id": "7j3o99aiqkdqg3kkcz7kig5qafr7pue9pjq8gdgrskub3kks5jdy",
+            "resourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst",
+            "name": "vdc-azure-test-tst",
+            "azureEnvironment": 0,
+            "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+            "regionId": "australiaeast"
+          },
+          "storageAccount": null,
+          "diskName": "vdc-azure-logix-bao-test-18032025_OsDisk_1_76b014e0f782453f9105359f5efd8c68"
+        },
+        "dataDisks": [],
+        "virtualNetwork": {
+          "_embeddedResources": {
+            "resourceGroup": {
+              "id": "7j3o99aiqkdqg3kkcz7kig5qafr7pue9pjq8gdgrskub3kks5jdy",
+              "resourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst",
+              "name": "vdc-azure-test-tst",
+              "azureEnvironment": 0,
+              "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+              "regionId": "australiaeast"
+            },
+            "subnets": [
+              {
+                "name": "default",
+                "addressSpace": "10.1.0.0/24"
+              }
+            ]
+          },
+          "resourceGroup": {
+            "id": "7j3o99aiqkdqg3kkcz7kig5qafr7pue9pjq8gdgrskub3kks5jdy",
+            "resourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst",
+            "name": "vdc-azure-test-tst",
+            "azureEnvironment": 0,
+            "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+            "regionId": "australiaeast"
+          },
+          "subnets": [
+            {
+              "name": "default",
+              "addressSpace": "10.1.0.0/24"
+            }
+          ],
+          "id": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst/providers/microsoft.network/virtualnetworks/vdc-azure-logix-bao-test-18032025-vnet",
+          "name": "vdc-azure-logix-bao-test-18032025-vnet",
+          "regionName": "australiaeast",
+          "addressSpaces": ["10.1.0.0/16"]
+        },
+        "subnet": {
+          "id": "default",
+          "name": "default",
+          "value": "10.1.0.0/24",
+          "addressSpace": "10.1.0.0/24"
+        },
+        "networkSecurityGroup": {
+          "id": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst/providers/microsoft.network/networksecuritygroups/vdc-azure-logix-bao-test-18032025-nsg",
+          "name": "vdc-azure-logix-bao-test-18032025-nsg",
+          "regionId": "australiaeast",
+          "resourceGroupName": "vdc-azure-test-tst",
+          "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea"
+        },
+        "availabilitySet": null,
+        "diskType": "Managed",
+        "vmSizeName": "Standard_B1ls"
+      }
+    },
+    {
+      "reason": "",
+      "restorePointId": "c2eb3025-d736-4787-bccd-f4b765761633",
+      "startVmAfterRestore": false,
+      "serviceAccountId": "8ad5c169-c2fc-4a0a-a1ae-5a5aaf2985bf",
+      "toAlternative": {
+        "vmId": "efr96w6e5rzxq8jf5xbirxncytx9c1wirzar8gjjizoas8gxi6zo",
+        "vmAzureResourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst/providers/microsoft.compute/virtualmachines/vdc-azure-logix-bao-test-18032025",
+        "serviceAccountId": "8ad5c169-c2fc-4a0a-a1ae-5a5aaf2985bf",
+        "name": "vdc-azure-logix-bao-test-18032025-backupcopy",
+        "subscription": {
+          "id": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+          "environment": 0,
+          "tenantId": "48bf783f-81f9-41a8-917e-045fbca6b055",
+          "tenantName": "VDC Support1",
+          "name": "Veeam - VDC - Support 1",
+          "status": 0
+        },
+        "resourceGroup": {
+          "id": "7j3o99aiqkdqg3kkcz7kig5qafr7pue9pjq8gdgrskub3kks5jdy",
+          "resourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst",
+          "name": "vdc-azure-test-tst",
+          "azureEnvironment": 0,
+          "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+          "regionId": "australiaeast"
+        },
+        "region": {
+          "id": "australiaeast",
+          "name": "Australia East"
+        },
+        "size": "Standard_B1ls",
+        "hasEphemeralOsDisk": false,
+        "osDisk": {
+          "name": "vdc-azure-logix-bao-test-18032025-ba-64e62e584bf6_Disk-1",
+          "diskType": 0,
+          "sku": "StandardHdd",
+          "availabilityZone": null,
+          "sizeInGB": 32,
+          "osType": 1,
+          "diskId": "4i9psq3upajt77kbnyjnojqrzdda4rmb4z4qjn7rdnnox3wp38so",
+          "subscription": {
+            "id": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+            "environment": 0,
+            "tenantId": "48bf783f-81f9-41a8-917e-045fbca6b055",
+            "tenantName": null,
+            "name": "Veeam - VDC - Support 1",
+            "status": 0
+          },
+          "region": {
+            "id": "australiaeast",
+            "name": "Australia East"
+          },
+          "resourceGroup": {
+            "id": "7j3o99aiqkdqg3kkcz7kig5qafr7pue9pjq8gdgrskub3kks5jdy",
+            "resourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst",
+            "name": "vdc-azure-test-tst",
+            "azureEnvironment": 0,
+            "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+            "regionId": "australiaeast"
+          },
+          "storageAccount": null,
+          "diskName": "vdc-azure-logix-bao-test-18032025-ba-64e62e584bf6_Disk-1"
+        },
+        "dataDisks": [],
+        "virtualNetwork": {
+          "_embeddedResources": {
+            "resourceGroup": {
+              "id": "7j3o99aiqkdqg3kkcz7kig5qafr7pue9pjq8gdgrskub3kks5jdy",
+              "resourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst",
+              "name": "vdc-azure-test-tst",
+              "azureEnvironment": 0,
+              "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+              "regionId": "australiaeast"
+            },
+            "subnets": [
+              {
+                "name": "default",
+                "addressSpace": "10.1.0.0/24"
+              }
+            ]
+          },
+          "resourceGroup": {
+            "id": "7j3o99aiqkdqg3kkcz7kig5qafr7pue9pjq8gdgrskub3kks5jdy",
+            "resourceId": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst",
+            "name": "vdc-azure-test-tst",
+            "azureEnvironment": 0,
+            "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea",
+            "regionId": "australiaeast"
+          },
+          "subnets": [
+            {
+              "name": "default",
+              "addressSpace": "10.1.0.0/24"
+            }
+          ],
+          "id": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst/providers/microsoft.network/virtualnetworks/vdc-azure-logix-bao-test-18032025-vnet",
+          "name": "vdc-azure-logix-bao-test-18032025-vnet",
+          "regionName": "australiaeast",
+          "addressSpaces": ["10.1.0.0/16"]
+        },
+        "subnet": {
+          "id": "default",
+          "name": "default",
+          "value": "10.1.0.0/24",
+          "addressSpace": "10.1.0.0/24"
+        },
+        "networkSecurityGroup": {
+          "id": "/subscriptions/a8ab8bf1-4b74-4521-af7d-1901b61461ea/resourcegroups/vdc-azure-test-tst/providers/microsoft.network/networksecuritygroups/vdc-azure-logix-bao-test-18032025-nsg",
+          "name": "vdc-azure-logix-bao-test-18032025-nsg",
+          "regionId": "australiaeast",
+          "resourceGroupName": "vdc-azure-test-tst",
+          "subscriptionId": "a8ab8bf1-4b74-4521-af7d-1901b61461ea"
+        },
+        "availabilitySet": null,
+        "diskType": "Managed",
+        "vmSizeName": "Standard_B1ls"
+      }
+    }
+  ],
+  "validationSteps": [1, 2, 3, 16, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
